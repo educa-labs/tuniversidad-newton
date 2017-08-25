@@ -1,0 +1,12 @@
+
+.idea
+*.iml
+out
+gen
+pre_work/preprocessing/W2V/sbw_vectors.bin
+pre_work/preprocessing/W2V/trained_vectors
+pre_work/preprocessing/W2V/trained_vectors.syn0.npy
+pre_work/preprocessing/W2V/*.csv
+pre_work/data/*
+pre_work/preprocessed_data/*
+pre_work/serialized/*
