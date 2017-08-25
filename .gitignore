@@ -7,6 +7,6 @@ pre_work/preprocessing/W2V/*.csv
 pre_work/data/*
 pre_work/preprocessed_data/*
 pre_work/serialized/*
-newton/forest/random_forest/*
-newton/knn/balltree/*
+newton/forest/serialized/*
+newton/knn/serialized/*
 data/*
