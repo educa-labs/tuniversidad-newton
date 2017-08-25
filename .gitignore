@@ -9,3 +9,4 @@ pre_work/preprocessed_data/*
 pre_work/serialized/*
 newton/forest/random_forest/*
 newton/knn/balltree/*
+data/*
