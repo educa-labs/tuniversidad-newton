@@ -10,3 +10,4 @@ pre_work/serialized/*
 newton/forest/serialized/*
 newton/knn/serialized/*
 data/*
+newton/data/*
