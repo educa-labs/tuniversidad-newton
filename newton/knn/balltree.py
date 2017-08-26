@@ -25,10 +25,10 @@ def gower_distance(X_j, X_k, **kwargs):
 
 class Tree:
 
-    def __init__(self):
-        self.balltree = joblib.load('serialized/balltree')
-        self.data = np.array(pd.read_csv('../data/carreers_scaled.csv'))
-        self.ids = np.load('../data/ids.npy')
+    def __init__(self,serialized_dir,data_dir):
+        self.balltree = joblib.load('{}/balltree'.format(serialized_dir))
+        self.data = np.array(pd.read_csv('{}/carreers_scaled.csv'.format(data_dir)))
+        self.ids = np.load('{}/ids.npy'.format(data_dir))
         self.reversed_ids = np.zeros(self.ids.shape,dtype='int32')
         for i in range(self.ids.shape[0]):
             self.reversed_ids[self.ids[i]] = i
@@ -39,7 +39,9 @@ class Tree:
         return np.array(list(map(lambda x: self.ids[x],result)))
 
 if __name__ == '__main__':
+    #Ejemplo de uso
+
     id_query = np.array([4])
-    tree = Tree()
+    tree = Tree('serialized','../data')
     print(tree.query(id_query,5))
 

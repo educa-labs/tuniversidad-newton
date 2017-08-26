@@ -11,3 +11,4 @@ newton/forest/serialized/*
 newton/knn/serialized/*
 data/*
 newton/data/*
+*.pyc
