@@ -1,5 +1,4 @@
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.externals import joblib
 
 class Forest:
