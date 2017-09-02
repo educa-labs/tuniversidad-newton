@@ -63,5 +63,52 @@ nw.get_recs(area_id,test_scores)
 Eso último devuelve un `np.array (n,n_forest_results,k)` de carreras recomendadas con `n = len(test_scores)`
 
 
-### Modelo de 
+### Clases
+
+```python
+class Newton:
+```
+Es el objeto que funciona como sistema recomendador. Lo que hace es manejar la interacción entre las clases `Tree` y `Forest`.
+
+Métodos:
+
+```python
+def __init__(self, area_ids,serialized_forests,serialized_tree, 
+            data_dir, n_forest_results=3, k=5):
+```
+Args: 
+* area_ids `(np.array)` con ides de las areas.
+* serialized_forests `(str)` path a carpeta con forests serializados.
+* serialized_tree `(str)` path a carpeta con tree serializado
+* data_dir `(str)` path a carpeta con datos.
+* n_forest_results `(int)` cantidad de resultados obtenidos por el RF
+* k `(int)` cantidad de vecinos cercanos calculados por el BallTree
+
+retorna: Objeto `Newton`
+
+```python
+def get_recs(self, area_id, scores):
+```
+Args:
+* area_id - int  id de area para recomendar.
+* scores - np.array (n,5) arreglo de puntajes para recomendar.
+
+retorna: np.array (n,n_forest_results,k) carreras recomendadas.
+
+
+Atributos:
+
+ * `area_ids (np.array)` con ides de las areas.
+ * `balltree (Tree)` Ball tree para vecinos cercanos.
+ * `active_forests (dict - int:Forest())`  diccionario que tiene por llave el id de un área y por valor el objeto `Forest()`
+ de esa área o `None`
+ * `n_forest_results (int)` Número de resultados obtenidos de una query a un `Forest`
+ * `k (int)` número de vecinos cercanos pedidos al `Tree`
+ * `serialized_forests (str)` path de carpeta con objetos `Forest` serializados.
+  
+  
+    
+ 
+
+
 
