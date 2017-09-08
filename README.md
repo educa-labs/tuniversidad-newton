@@ -106,9 +106,57 @@ Atributos:
  * `k (int)` número de vecinos cercanos pedidos al `Tree`
  * `serialized_forests (str)` path de carpeta con objetos `Forest` serializados.
   
-  
-    
- 
+```python
+class Forest
+```
+Este objeto es un wrapper de la clase RandomForestClassifier de sklearn.
+
+Métodos:
+
+```python
+def __init__(self, area_id,serialized_dir):
+```
+Args:
+* `area_id (int)` id del área para recomendar
+* `serialized_dir (str)` path al directorio con los modelos serializados.
+
+Retorna: objeto de la clase.
+
+```python
+def query(self, points, n_results):
+```
+Args:
+
+* `points (np.array, shape(n,5))` Arreglo con n puntajes a consultar con el orden `[mat,len,cie,his,nem]` 
+* `n_results (int)` Número de resultados para cada puntaje.
+
+Retorna:`np.array (n,n_results)` Arreglo de indíces de clases predecidas.
+
+```python
+def get_class(self,indexes):
+```
+
+Args:
+* `indexes `(np.array(n,m)) Arreglo de índices de clases.
+
+Retorna: `(np.array(n,m))` Arreglo con ids de carreras asociadas a las clases.
+
+
+```python
+class Tree
+```
+Esta clase es un wrapper de la clase `BallTree` de sklearn.
+
+Métodos:
+```python
+def query(self, ids_points, k=5):
+```
+
+Args:
+* `ids_points np.array(n)` Array con ids de las carreras a pedir los vecinos cercanos.
+* `k (int)` Cantidad de vecinos por punto.
+
+Retorna: `np.array(n,k)` Arreglo con k vecinos cercanos por cada punto de la consulta.
 
 
 
